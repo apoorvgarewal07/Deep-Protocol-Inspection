@@ -3,11 +3,14 @@
 #include <sstream>
 #include <vector>
 #include "dpi_engine.h"
+#include "console_utf8.h"
 
 using namespace DPI;
+using namespace std;
+
 
 void printUsage(const char* program) {
-    std::cout << R"(
+    cout << R"(
 ╔══════════════════════════════════════════════════════════════╗
 ║                    DPI ENGINE v1.0                            ║
 ║               Deep Packet Inspection System                   ║
@@ -62,10 +65,10 @@ Architecture:
 )";
 }
 
-std::vector<std::string> split(const std::string& s) {
-    std::vector<std::string> tokens;
-    std::istringstream iss(s);
-    std::string token;
+vector<string> split(const string& s) {
+    vector<string> tokens;
+    istringstream iss(s);
+    string token;
     while (iss >> token) {
         tokens.push_back(token);
     }
@@ -73,26 +76,29 @@ std::vector<std::string> split(const std::string& s) {
 }
 
 int main(int argc, char* argv[]) {
+
+      enableUTF8Console();
+    
     if (argc < 3) {
         printUsage(argv[0]);
         return 1;
     }
     
-    std::string input_file = argv[1];
-    std::string output_file = argv[2];
+    string input_file = argv[1];
+    string output_file = argv[2];
     
     // Parse options
     DPIEngine::Config config;
     config.num_load_balancers = 2;
     config.fps_per_lb = 2;
     
-    std::vector<std::string> block_ips;
-    std::vector<std::string> block_apps;
-    std::vector<std::string> block_domains;
-    std::string rules_file;
+    vector<string> block_ips;
+    vector<string> block_apps;
+    vector<string> block_domains;
+    string rules_file;
     
     for (int i = 3; i < argc; i++) {
-        std::string arg = argv[i];
+        string arg = argv[i];
         
         if (arg == "--block-ip" && i + 1 < argc) {
             block_ips.push_back(argv[++i]);
@@ -103,9 +109,9 @@ int main(int argc, char* argv[]) {
         } else if (arg == "--rules" && i + 1 < argc) {
             rules_file = argv[++i];
         } else if (arg == "--lbs" && i + 1 < argc) {
-            config.num_load_balancers = std::stoi(argv[++i]);
+            config.num_load_balancers = stoi(argv[++i]);
         } else if (arg == "--fps" && i + 1 < argc) {
-            config.fps_per_lb = std::stoi(argv[++i]);
+            config.fps_per_lb = stoi(argv[++i]);
         } else if (arg == "--verbose") {
             config.verbose = true;
         } else if (arg == "--help" || arg == "-h") {
@@ -119,7 +125,7 @@ int main(int argc, char* argv[]) {
     
     // Initialize
     if (!engine.initialize()) {
-        std::cerr << "Failed to initialize DPI engine\n";
+        cerr << "Failed to initialize DPI engine\n";
         return 1;
     }
     
@@ -143,12 +149,12 @@ int main(int argc, char* argv[]) {
     
     // Process the file
     if (!engine.processFile(input_file, output_file)) {
-        std::cerr << "Failed to process file\n";
+        cerr << "Failed to process file\n";
         return 1;
     }
     
-    std::cout << "\nProcessing complete!\n";
-    std::cout << "Output written to: " << output_file << "\n";
+    cout << "\nProcessing complete!\n";
+    cout << "Output written to: " << output_file << "\n";
     
     return 0;
 }

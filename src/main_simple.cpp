@@ -4,13 +4,19 @@
 #include "packet_parser.h"
 #include "sni_extractor.h"
 #include "types.h"
+  #include "console_utf8.h"
+
 
 using namespace PacketAnalyzer;
 using namespace DPI;
+using namespace std;
 
 int main(int argc, char* argv[]) {
+
+      enableUTF8Console();
+
     if (argc < 2) {
-        std::cerr << "Usage: " << argv[0] << " <pcap_file>\n";
+        cerr << "Usage: " << argv[0] << " <pcap_file>\n";
         return 1;
     }
     
@@ -24,7 +30,7 @@ int main(int argc, char* argv[]) {
     int count = 0;
     int tls_count = 0;
     
-    std::cout << "Processing packets...\n";
+    cout << "Processing packets...\n";
     
     while (reader.readNextPacket(raw)) {
         count++;
@@ -35,7 +41,7 @@ int main(int argc, char* argv[]) {
         
         if (!parsed.has_ip) continue;
         
-        std::cout << "Packet " << count << ": " 
+        cout << "Packet " << count << ": " 
                   << parsed.src_ip << ":" << parsed.src_port
                   << " -> " << parsed.dest_ip << ":" << parsed.dest_port;
         
@@ -52,17 +58,17 @@ int main(int argc, char* argv[]) {
                 size_t payload_len = raw.data.size() - payload_offset;
                 auto sni = SNIExtractor::extract(raw.data.data() + payload_offset, payload_len);
                 if (sni) {
-                    std::cout << " [SNI: " << *sni << "]";
+                    cout << " [SNI: " << *sni << "]";
                     tls_count++;
                 }
             }
         }
         
-        std::cout << "\n";
+        cout << "\n";
     }
     
-    std::cout << "\nTotal packets: " << count << "\n";
-    std::cout << "SNI extracted: " << tls_count << "\n";
+    cout << "\nTotal packets: " << count << "\n";
+    cout << "SNI extracted: " << tls_count << "\n";
     
     reader.close();
     return 0;
