@@ -8,7 +8,7 @@
 namespace DPI {
 
 // ============================================================================
-// DPIEngine Implementation
+// DPIEngine Implementation.
 // ============================================================================
 
 DPIEngine::DPIEngine(const Config& config)

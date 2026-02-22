@@ -9,7 +9,7 @@ namespace DPI {
 std::string FiveTuple::toString() const {
     std::ostringstream ss;
     
-    // Format IP addresses
+    // Format IP addresses.
     auto formatIP = [](uint32_t ip) {
         std::ostringstream s;
         s << ((ip >> 0) & 0xFF) << "."

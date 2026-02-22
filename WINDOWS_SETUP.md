@@ -21,7 +21,7 @@ This guide will help you build and run the DPI Engine on Windows. Follow these s
 
 4. Click "Install" and wait (this takes 10-20 minutes)
 
-### Step 2: Open the Project
+### Step 2: Open the Project.
 
 1. Open Visual Studio 2022
 

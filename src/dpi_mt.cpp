@@ -548,7 +548,7 @@ private:
             std::cout << "║   FP" << i << " processed:    " << std::setw(12) << fps_[i]->processed() << "                           ║\n";
         }
         
-        // App distribution
+        // App distribution.
         std::cout << "╠══════════════════════════════════════════════════════════════╣\n";
         std::cout << "║                   APPLICATION BREAKDOWN                       ║\n";
         std::cout << "╠══════════════════════════════════════════════════════════════╣\n";

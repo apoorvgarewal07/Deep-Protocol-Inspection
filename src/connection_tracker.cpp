@@ -45,7 +45,7 @@ Connection* ConnectionTracker::getConnection(const FiveTuple& tuple) {
         return &it->second;
     }
     
-    // Try reverse tuple (for bidirectional matching)
+    // Try reverse tuple (for bidirectional matching).
     auto rev = connections_.find(tuple.reverse());
     if (rev != connections_.end()) {
         return &rev->second;

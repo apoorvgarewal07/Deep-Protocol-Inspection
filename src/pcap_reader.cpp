@@ -16,7 +16,7 @@ bool PcapReader::open(const std::string& filename) {
     // Close any previously opened file
     close();
     
-    // Open in binary mode - this is crucial for reading raw bytes
+    // Open in binary mode - this is crucial for reading raw bytes.
     file_.open(filename, std::ios::binary);
     if (!file_.is_open()) {
         std::cerr << "Error: Could not open file: " << filename << std::endl;

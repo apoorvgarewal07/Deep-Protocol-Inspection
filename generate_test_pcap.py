@@ -14,7 +14,7 @@ class PCAPWriter:
         self.timestamp = 1700000000
         
     def write_global_header(self):
-        # Magic, version 2.4, timezone 0, sigfigs 0, snaplen 65535, linktype Ethernet
+        # Magic, version 2.4, timezone 0, sigfigs 0, snaplen 65535, linktype Ethernet.
         header = struct.pack('<IHHIIII', 0xa1b2c3d4, 2, 4, 0, 0, 65535, 1)
         self.file.write(header)
         

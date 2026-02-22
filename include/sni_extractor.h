@@ -15,7 +15,7 @@ namespace DPI {
 // TLS Client Hello Structure (simplified):
 // 
 // Record Layer:
-//   - Content Type (1 byte): 0x16 = Handshake
+//   - Content Type (1 byte): 0x16 = Handshake.
 //   - Version (2 bytes): 0x0301 = TLS 1.0, 0x0303 = TLS 1.2
 //   - Length (2 bytes)
 //

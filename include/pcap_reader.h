@@ -8,7 +8,7 @@
 
 namespace PacketAnalyzer {
 
-// PCAP Global Header (24 bytes)
+// PCAP Global Header (24 bytes).
 // This is at the very beginning of every .pcap file
 struct PcapGlobalHeader {
     uint32_t magic_number;   // 0xa1b2c3d4 (or swapped for big-endian)

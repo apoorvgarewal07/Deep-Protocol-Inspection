@@ -5,7 +5,7 @@
 namespace DPI {
 
 // ============================================================================
-// LoadBalancer Implementation
+// LoadBalancer Implementation.
 // ============================================================================
 
 LoadBalancer::LoadBalancer(int lb_id,

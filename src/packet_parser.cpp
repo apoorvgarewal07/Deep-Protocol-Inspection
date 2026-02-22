@@ -29,7 +29,7 @@ bool PacketParser::parse(const RawPacket& raw, ParsedPacket& parsed) {
         return false;
     }
     
-    // Parse IP layer if it's an IPv4 packet
+    // Parse IP layer if it's an IPv4 packet.
     if (parsed.ether_type == EtherType::IPv4) {
         if (!parseIPv4(data, len, parsed, offset)) {
             return false;

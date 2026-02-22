@@ -11,7 +11,7 @@ namespace DPI {
 
 // ============================================================================
 // Thread-safe queue for passing packets between threads
-// Used for: Reader -> LB -> FP communication
+// Used for: Reader -> LB -> FP communication.
 // ============================================================================
 template<typename T>
 class ThreadSafeQueue {

@@ -6,7 +6,7 @@
 
 #include <cstdint>
 
-// Portable byte order conversion
+// Portable byte order conversion.
 // Works on any platform without requiring system headers
 namespace PortableNet {
 

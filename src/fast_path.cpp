@@ -2,11 +2,12 @@
 #include <iostream>
 #include <sstream>
 #include <iomanip>
+#include <algorithm>
 
 namespace DPI {
 
 // ============================================================================
-// FastPathProcessor Implementation
+// FastPathProcessor Implementation.
 // ============================================================================
 
 FastPathProcessor::FastPathProcessor(int fp_id,

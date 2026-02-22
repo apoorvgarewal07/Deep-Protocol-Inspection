@@ -9,7 +9,7 @@
 namespace PacketAnalyzer {
 
 // Ethernet Header (14 bytes)
-// This is the first layer - the "envelope" for the packet
+// This is the first layer - the "envelope" for the packet.
 struct EthernetHeader {
     std::array<uint8_t, 6> dest_mac;    // Destination MAC address
     std::array<uint8_t, 6> src_mac;     // Source MAC address
