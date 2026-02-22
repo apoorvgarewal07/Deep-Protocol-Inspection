@@ -11,7 +11,7 @@
 namespace DPI {
 
 // ============================================================================
-// Connection Tracker - Maintains flow table for all active connections
+// Connection Tracker - Maintains flow table for all active connections.
 // ============================================================================
 //
 // Each FP thread has its own ConnectionTracker instance (no sharing needed

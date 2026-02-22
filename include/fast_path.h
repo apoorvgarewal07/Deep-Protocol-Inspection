@@ -14,7 +14,7 @@
 namespace DPI {
 
 // ============================================================================
-// Fast Path Processor Thread
+// Fast Path Processor Thread.
 // ============================================================================
 //
 // Each FP thread is responsible for:

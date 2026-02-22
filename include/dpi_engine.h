@@ -17,7 +17,7 @@
 namespace DPI {
 
 // ============================================================================
-// DPI Engine - Main orchestrator
+// DPI Engine - Main orchestrator.
 // ============================================================================
 //
 // Architecture Overview:
